@@ -69,9 +69,9 @@
                                         <tbody>
                                             <?php
                                                 $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM stok_barang");
+                                                $i = 1;
                                                 while($data = mysqli_fetch_array($ambilsemuadatastock))
                                                 {
-                                                    $i = 1;
                                                     $namabarang = $data['nama_barang'];
                                                     $jenis = $data['jenis'];
                                                     $stok = $data['stok'];

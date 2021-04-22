@@ -70,9 +70,9 @@
                                         <tbody>
                                             <?php
                                                 $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM barang_keluar k, stok_barang s WHERE s.id_barang = k.id_barang");
+                                                $i = 1;
                                                 while($data = mysqli_fetch_array($ambilsemuadatastock))
                                                 {
-                                                    $i = 1;
                                                     $namabarang = $data['nama_barang'];
                                                     $tanggal = $data['tanggal'];
                                                     $penerima = $data['penerima'];
