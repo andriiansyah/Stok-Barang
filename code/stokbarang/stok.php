@@ -67,12 +67,24 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                                $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM stok_barang");
+                                                while($data = mysqli_fetch_array($ambilsemuadatastock))
+                                                {
+                                                    $i = 1;
+                                                    $namabarang = $data['nama_barang'];
+                                                    $jenis = $data['jenis'];
+                                                    $stok = $data['stok'];
+                                            ?>
                                             <tr>
-                                                <td>Donna Snider</td>
-                                                <td>Customer Support</td>
-                                                <td>New York</td>
-                                                <td>27</td>
+                                                <td><?= $i++; ?></td>
+                                                <td><?= $namabarang; ?></td>
+                                                <td><?= $jenis; ?></td>
+                                                <td><?= $stok; ?></td>
                                             </tr>
+                                            <?php 
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>

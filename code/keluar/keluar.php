@@ -60,23 +60,34 @@
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Position</th>
-                                                <th>Office</th>
-                                                <th>Age</th>
-                                                <th>Start date</th>
-                                                <th>Salary</th>
+                                                <th>No</th>
+                                                <th>Nama Barang</th>
+                                                <th>Tanggal</th>
+                                                <th>Penerima</th>
+                                                <th>Qty</th>
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            <?php
+                                                $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM barang_keluar k, stok_barang s WHERE s.id_barang = k.id_barang");
+                                                while($data = mysqli_fetch_array($ambilsemuadatastock))
+                                                {
+                                                    $i = 1;
+                                                    $namabarang = $data['nama_barang'];
+                                                    $tanggal = $data['tanggal'];
+                                                    $penerima = $data['penerima'];
+                                                    $qty = $data['qty'];
+                                            ?>
                                             <tr>
-                                                <td>Tiger Nixon</td>
-                                                <td>System Architect</td>
-                                                <td>Edinburgh</td>
-                                                <td>61</td>
-                                                <td>2011/04/25</td>
-                                                <td>$320,800</td>
+                                                <td><?= $i++; ?></td>
+                                                <td><?= $namabarang; ?></td>
+                                                <td><?= $tanggal; ?></td>
+                                                <td><?= $penerima; ?></td>
+                                                <td><?= $qty; ?></td>
                                             </tr>
+                                            <?php 
+                                                }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
