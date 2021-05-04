@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Stok Barang</title>
+        <title>Stok Barang Keluar</title>
         <link href="../../css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
@@ -25,7 +25,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="stok.php">
+                            <a class="nav-link" href="../stokbarang/stok.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Stok Barang
                             </a>
@@ -50,10 +50,10 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Stok Barang</h1>
+                        <h1 class="mt-4">Stok Barang Keluar</h1>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5>Tambah Data Barang</h5>
+                                <h5>Tambah Data Barang Keluar</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -97,7 +97,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Andriansyah</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

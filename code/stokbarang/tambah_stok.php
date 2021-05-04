@@ -53,7 +53,7 @@
                         <h1 class="mt-4">Stok Barang</h1>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5>Tambah Data Barang</h5>
+                                <h5>Tambah Data Barang Stok</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -80,7 +80,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Andriansyah</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;

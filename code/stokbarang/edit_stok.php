@@ -25,7 +25,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <a class="nav-link" href="../stokbarang/stok.php">
+                            <a class="nav-link" href="stok.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Stok Barang
                             </a>
@@ -50,44 +50,39 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Stok Barang Masuk</h1>
+                        <h1 class="mt-4">Stok Barang</h1>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5>Tambah Data Barang Masuk</h5>
+                                <h5>Edit Data Barang</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <form method="POST" action="tambah_barang_masuk_proses.php">
+                                <?php 
+                                    $idbarang = $_GET['id'];
+                                    
+                                    $result = mysqli_query($conn, "SELECT * FROM stok_barang WHERE id_barang=$idbarang");
+                                    while($data = mysqli_fetch_array($result))
+                                    {
+                                        $namabarang = $data['nama_barang'];
+                                        $jenis = $data['jenis'];
+                                        $stok = $data['stok'];
+                                    }
+                                ?>
+                                    <form method="POST" action="edit_stok_proses.php">
+                                    <input type="text" class="form-control" name="idbarang" value=<?= $idbarang; ?> >
                                         <div class="form-group">
                                             <label for="namabarang">Nama Barang</label>
-                                            <select name="barangnya" class="form-control">
-                                                <?php 
-                                                    $ambilsemuadatanya = mysqli_query($conn, "SELECT * FROM stok_barang");
-                                                    while($fetcharray = mysqli_fetch_array($ambilsemuadatanya)) {
-                                                        $namabarangnya = $fetcharray['nama_barang'];
-                                                        $idbarangnya = $fetcharray['id_barang'];
-                                                ?>
-
-                                                <option value="<?= $idbarangnya; ?>"><?= $namabarangnya; ?></option>
-
-                                                <?php
-                                                    }
-                                                ?>
-                                            </select>
+                                            <input type="text" class="form-control" name="namabarang" value="<?= $namabarang; ?>" placeholder="Masukan nama barang" required />
+                                        </div>      
+                                        <div class="form-group">
+                                            <label>Jenis</label>
+                                            <input type="text" class="form-control" name="jenis" value="<?= $jenis; ?>" placeholder="Masukan jenis barang" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Tanggal</label>
-                                            <input type="text" class="form-control" name="tanggal" placeholder="Masukan tanggal" required>
+                                            <label>Stok</label>
+                                            <input type="number" class="form-control" name="stok" value="<?= $stok; ?>" placeholder="Masukan stok barang">
                                         </div>
-                                        <div class="form-group">
-                                            <label>Keterangan</label>
-                                            <input type="text" class="form-control" name="keterangan" placeholder="Masukan keterangan">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Qty</label>
-                                            <input type="number" class="form-control" name="qty" placeholder="Masukan quantitynya">
-                                        </div>
-                                        <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Edit</button>
                                     </form>
                                 </div>
                             </div>

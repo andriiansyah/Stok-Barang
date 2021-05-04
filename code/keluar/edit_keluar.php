@@ -50,14 +50,14 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Stok Barang Masuk</h1>
+                        <h1 class="mt-4">Stok Barang Keluar</h1>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5>Tambah Data Barang Masuk</h5>
+                                <h5>Edit Data Barang Keluar</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <form method="POST" action="tambah_barang_masuk_proses.php">
+                                    <form method="POST" action="tambah_barang_keluar_proses.php">
                                         <div class="form-group">
                                             <label for="namabarang">Nama Barang</label>
                                             <select name="barangnya" class="form-control">
@@ -80,12 +80,12 @@
                                             <input type="text" class="form-control" name="tanggal" placeholder="Masukan tanggal" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Keterangan</label>
-                                            <input type="text" class="form-control" name="keterangan" placeholder="Masukan keterangan">
+                                            <label>Penerima</label>
+                                            <input type="text" class="form-control" name="penerima" placeholder="Masukan penerimanya" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Qty</label>
-                                            <input type="number" class="form-control" name="qty" placeholder="Masukan quantitynya">
+                                            <input type="number" class="form-control" name="qty" placeholder="Masukan quantitynya" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
                                     </form>

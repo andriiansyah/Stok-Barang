@@ -53,11 +53,24 @@
                         <h1 class="mt-4">Stok Barang Masuk</h1>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <h5>Tambah Data Barang Masuk</h5>
+                                <h5>Edit Data Barang Masuk</h5>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <form method="POST" action="tambah_barang_masuk_proses.php">
+                                <?php 
+                                    $idmasuk = $_GET['id'];
+                                    
+                                    $result = mysqli_query($conn, "SELECT * FROM barang_masuk WHERE id_masuk=$idmasuk");
+                                    while($data = mysqli_fetch_array($result))
+                                    {
+                                        $idbarang = $data['id_barang'];
+                                        $tanggal = $data['tanggal'];
+                                        $keterangan = $data['keterangan'];
+                                        $qty = $data['qty'];
+                                    }
+                                ?>
+                                    <form method="POST" action="edit_masuk_proses.php">
+                                    <input type="text" class="form-control" name="idmasuk" value=<?= $idmasuk; ?>>
                                         <div class="form-group">
                                             <label for="namabarang">Nama Barang</label>
                                             <select name="barangnya" class="form-control">
@@ -68,24 +81,27 @@
                                                         $idbarangnya = $fetcharray['id_barang'];
                                                 ?>
 
-                                                <option value="<?= $idbarangnya; ?>"><?= $namabarangnya; ?></option>
+                                                <option value="<?= $idbarangnya; ?>" <?php if($idbarangnya == $idbarang){ echo "selected"; } ?>><?= $namabarangnya; ?></option>
 
                                                 <?php
                                                     }
                                                 ?>
                                             </select>
                                         </div>
+
+                                        <input type="text" class="form-control" name="id_barang" value=<?= $idbarang; ?>>
+
                                         <div class="form-group">
                                             <label>Tanggal</label>
-                                            <input type="text" class="form-control" name="tanggal" placeholder="Masukan tanggal" required>
+                                            <input type="text" class="form-control" name="tanggal" value="<?= $tanggal; ?>" placeholder="Masukan tanggal" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Keterangan</label>
-                                            <input type="text" class="form-control" name="keterangan" placeholder="Masukan keterangan">
+                                            <input type="text" class="form-control" name="keterangan" value="<?= $keterangan; ?>" placeholder="Masukan keterangan">
                                         </div>
                                         <div class="form-group">
                                             <label>Qty</label>
-                                            <input type="number" class="form-control" name="qty" placeholder="Masukan quantitynya">
+                                            <input type="number" class="form-control" name="qty" value="<?= $qty; ?>" placeholder="Masukan quantitynya">
                                         </div>
                                         <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
                                     </form>

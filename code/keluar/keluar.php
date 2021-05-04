@@ -57,14 +57,15 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
+                                    <table class="table table-bordered table-striped" id="dataTable" width="100%" cellspacing="0">
+                                        <thead class="thead-dark">
                                             <tr>
                                                 <th>No</th>
                                                 <th>Nama Barang</th>
                                                 <th>Tanggal</th>
                                                 <th>Penerima</th>
                                                 <th>Qty</th>
+                                                <th>Aksi</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -73,6 +74,7 @@
                                                 $i = 1;
                                                 while($data = mysqli_fetch_array($ambilsemuadatastock))
                                                 {
+                                                    $idkeluar = $data['id_keluar'];
                                                     $namabarang = $data['nama_barang'];
                                                     $tanggal = $data['tanggal'];
                                                     $penerima = $data['penerima'];
@@ -84,6 +86,10 @@
                                                 <td><?= $tanggal; ?></td>
                                                 <td><?= $penerima; ?></td>
                                                 <td><?= $qty; ?></td>
+                                                <td>
+                                                    <a class="btn btn-warning" href="edit_keluar.php?id=<?= $idkeluar; ?>" role="button">Update</a>
+                                                    <a class="btn btn-danger" href="hapus_keluar.php?id=<?= $idkeluar; ?>" role="button">Delete</a>
+                                                </td>
                                             </tr>
                                             <?php 
                                                 }
@@ -98,7 +104,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Andriansyah</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
