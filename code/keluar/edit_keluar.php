@@ -57,10 +57,27 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <form method="POST" action="tambah_barang_keluar_proses.php">
+                                <?php 
+                                    $id_keluar = $_GET['id'];
+
+                                    $result = mysqli_query($conn, "SELECT * FROM barang_keluar WHERE id_keluar = $id_keluar");
+                                    while($data = mysqli_fetch_array($result))
+                                    {
+                                        $id_barang = $data['id_barang'];
+                                        $tanggal = $data['tanggal'];
+                                        $penerima = $data['penerima'];
+                                        $qty = $data['qty'];
+                                    }
+                                ?>
+                                    <form method="POST" action="edit_keluar_proses.php">
                                         <div class="form-group">
+                                            <!-- Id Keluar -->
+                                            <input type="text" class="form-control" name="id_keluar" value="<?= $id_keluar; ?>">
+                                            <!-- Id Barang -->
+                                            <input type="text" class="form-control" name="id_barang2" value="<?= $id_barang; ?>">
+
                                             <label for="namabarang">Nama Barang</label>
-                                            <select name="barangnya" class="form-control">
+                                            <select name="id_barang" class="form-control">
                                                 <?php 
                                                     $ambilsemuadatanya = mysqli_query($conn, "SELECT * FROM stok_barang");
                                                     while($fetcharray = mysqli_fetch_array($ambilsemuadatanya)) {
@@ -68,7 +85,7 @@
                                                         $idbarangnya = $fetcharray['id_barang'];
                                                 ?>
 
-                                                <option value="<?= $idbarangnya; ?>"><?= $namabarangnya; ?></option>
+                                                <option value="<?= $idbarangnya; ?>" <?php if($idbarangnya == $id_barang){ echo "selected"; } ?>><?= $namabarangnya; ?></option>
 
                                                 <?php
                                                     }
@@ -77,15 +94,15 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Tanggal</label>
-                                            <input type="text" class="form-control" name="tanggal" placeholder="Masukan tanggal" required>
+                                            <input type="text" class="form-control" name="tanggal" value="<?= $tanggal; ?>" placeholder="Masukan tanggal" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Penerima</label>
-                                            <input type="text" class="form-control" name="penerima" placeholder="Masukan penerimanya" required>
+                                            <input type="text" class="form-control" name="penerima" value="<?= $penerima; ?>" placeholder="Masukan penerimanya" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Qty</label>
-                                            <input type="number" class="form-control" name="qty" placeholder="Masukan quantitynya" required>
+                                            <input type="number" class="form-control" name="qty" value="<?= $qty; ?>" placeholder="Masukan quantitynya" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
                                     </form>
