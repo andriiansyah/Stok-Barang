@@ -2,6 +2,6 @@
     session_start();
 
     // Membuat koneksi ke database
-    $conn = mysqli_connect("localhost", "root", "", "stok_barang");
+    $conn = mysqli_connect("localhost", "root", "", "stokbarang");
 
 ?>
